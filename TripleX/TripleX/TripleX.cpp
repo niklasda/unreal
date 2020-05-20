@@ -3,40 +3,71 @@
 
 #include <iostream>
 
-int main()
+
+void PrintIntroduction(int Difficulty)
 {
-	std::cout << "You are a secret agent trying to break into a secure server room...";
-	std::cout << std::endl;
-	std::cout << "Enter the correct code to continue...";
-	std::cout << std::endl;
+	std::cout << "\n\nYou are a secret agent trying to break into a level " << Difficulty;
 
-	const int CodeA = 4;
-	const auto CodeB = 3;
-	const int CodeC = 2;
+	std::cout << " secure server room...\n";
 
+	std::cout << "Enter the correct code to continue...\n\n";
+}
+
+bool PlayGame(int Difficulty)
+{
+	PrintIntroduction(Difficulty);
+	
+	const int CodeA = 4, CodeB = 3, CodeC = 2;
 	int CodeSum = CodeA + CodeB + CodeC;
 	int CodeProduct = CodeA * CodeB * CodeC;
 
 	// exiting stuff
 
 	/*
-		not hard
+	not hard
 	*/
 
-	std::cout << std::endl;
-	std::cout << "+ There are 3 numbers in the code " << std::endl;
-	std::cout << "+ The codes add-up to " << CodeSum << std::endl;
-	std::cout << "+ The codes multiply to give " << CodeProduct << std::endl;
+	std::cout << "+ There are 3 numbers in the code " ;
+	std::cout << "\n+ The codes add-up to " << CodeSum ;
+	std::cout << "\n+ The codes multiply to give " << CodeProduct << std::endl;
 
 	int GuessA, GuessB, GuessC;
 
-	std::cin >> GuessA;
-	std::cin >> GuessB;
-	std::cin >> GuessC;
+	std::cin >> GuessA >> GuessB >> GuessC;
+	
 	// std::cout << "You entered: " << GuessA << GuessB << GuessC << std::endl;
 
 	int GuessSum = GuessA + GuessB + GuessC;
 	int GuessProduct = GuessA * GuessB * GuessC;
 
+	if(CodeSum == GuessSum && CodeProduct == GuessProduct)
+	{
+		std::cout << "The code is correct, proceed!\n";
+		return true;
+	}
+	else
+	{
+		std::cout << "The code is wrong, you die!\n";
+		return false;
+	}
+}
+
+int main()
+{
+
+	int LevelDifficulty = 1;
+	while (LevelDifficulty < 5)
+	{
+		bool bLevelComplete = PlayGame(LevelDifficulty) ;
+
+		std::cin.clear();
+		std::cin.ignore();
+
+		if (bLevelComplete)
+		{
+			++LevelDifficulty;
+		}
+	}
+	
 	return 0;
 }
