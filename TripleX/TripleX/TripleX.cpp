@@ -5,22 +5,30 @@
 
 int main()
 {
-    std::cout << "You are a secret agent trying to break into a secure server room..." ;
+	std::cout << "You are a secret agent trying to break into a secure server room...";
 	std::cout << std::endl;
-	std::cout << "Enter the correct code to continue..."; 
+	std::cout << "Enter the correct code to continue...";
 	std::cout << std::endl;
-		
-	const int a = 4;
-    const auto b = 3;
-    const int c = 2;
 
-	int sum = a + b + c;
-	int product = a * b *c;
+	const int CodeA = 4;
+	const auto CodeB = 3;
+	const int CodeC = 2;
+
+	int CodeSum = CodeA + CodeB + CodeC;
+	int CodeProduct = CodeA * CodeB * CodeC;
+
+	// exiting stuff
+
+	/*
+		not hard
+	*/
+
+	std::cout << std::endl;
+	std::cout << "+ There are 3 numbers in the code " << std::endl;
+	std::cout << "+ The codes add-up to " << CodeSum << std::endl;
+	std::cout << "+ The codes multiply to give " << CodeProduct << std::endl;
+
+	int PlayerGuess;
 	
-	
-
-	std::cout << sum << std::endl;
-	std::cout << product << std::endl;
-
 	return 0;
 }
