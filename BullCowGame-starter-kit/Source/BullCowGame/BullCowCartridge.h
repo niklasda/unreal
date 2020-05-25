@@ -19,6 +19,9 @@ public:
 
 	// Your declarations go below!
 private:
+	void ProcessGuess(FString Guess);
+	 bool IsIsogram(FString Word) const;
+	
 	FString HiddenWord;
 	int32 Lives;
 	bool bGameOver;
