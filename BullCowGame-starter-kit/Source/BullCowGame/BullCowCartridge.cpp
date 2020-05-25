@@ -153,6 +153,12 @@ TArray<FString> UBullCowCartridge::GetValidWords(TArray<FString> InWords) const
 	InWords.Emplace("wayTooLong");
 	InWords.Remove("wayTooLong");
 
+	for(const FString LoopWord : InWords)
+	{
+		bool isIt = IsIsogram(LoopWord);
+
+	}
+	
 	for (int32 i = 0; i < InWords.Num(); i++)
 	{
 		//PrintLine(InWords[i]);
