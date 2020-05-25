@@ -20,7 +20,8 @@ public:
 	// Your declarations go below!
 private:
 	void ProcessGuess(FString Guess);
-	 bool IsIsogram(FString Word) const;
+	bool IsIsogram(FString Word) const;
+	TArray<FString> GetValidWords(TArray<FString> InWords) const;
 	
 	FString HiddenWord;
 	int32 Lives;

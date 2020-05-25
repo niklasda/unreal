@@ -1,5 +1,6 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 #include "BullCowCartridge.h"
+#include "HiddenWordList.h"
 
 #include <iostream>
 
@@ -59,7 +60,12 @@ void UBullCowCartridge::OnInput(const FString& Input) // When the player hits en
 
 void UBullCowCartridge::SetupGame()
 {
-	HiddenWord = TEXT("isogram");
+	//	Words[2];
+
+	TArray<FString> MyWords = GetValidWords(Words);
+	HiddenWord = MyWords[6];
+
+	//HiddenWord = TEXT("isogram");
 	Lives = HiddenWord.Len();
 	bGameOver = false;
 
@@ -67,6 +73,8 @@ void UBullCowCartridge::SetupGame()
 
 	PrintLine(TEXT("The Hidden word is: %s"), *HiddenWord);
 	PrintLine(TEXT("The word is %i characters long"), HiddenWord.Len());
+	PrintLine(TEXT("The word list is %i words long"), MyWords.Num());
+
 
 	PrintLine(TEXT("Moh There! (Tab to focus)"));
 	PrintLine(TEXT("Welcome to Bull Cows"));
@@ -123,18 +131,33 @@ void UBullCowCartridge::ProcessGuess(const FString Guess)
 
 bool UBullCowCartridge::IsIsogram(const FString Word) const
 {
-	for (int i = 0; i < Word.Len()-1; i++)
+	for (int32 i = 0; i < Word.Len() - 1; i++)
 	{
 		const TCHAR c = Word[i];
-		
-		for (int ii = i+1; ii < Word.Len(); ii++)
+
+		for (int32 ii = i + 1; ii < Word.Len(); ii++)
 		{
-			if(c == Word[ii])
+			if (c == Word[ii])
 			{
 				return false;
 			}
 		}
 	}
-	
+
 	return true;
+}
+
+TArray<FString> UBullCowCartridge::GetValidWords(TArray<FString> InWords) const
+{
+	InWords.Emplace("cones");
+	InWords.Emplace("wayTooLong");
+	InWords.Remove("wayTooLong");
+
+	for (int32 i = 0; i < InWords.Num(); i++)
+	{
+		//PrintLine(InWords[i]);
+		bool isIt = IsIsogram(InWords[i]);
+	}
+
+	return InWords;
 }
