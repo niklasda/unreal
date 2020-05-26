@@ -8,6 +8,7 @@ void UBullCowCartridge::BeginPlay() // When the game starts
 {
 	Super::BeginPlay();
 
+
 	SetupGame();
 }
 
@@ -64,9 +65,9 @@ void UBullCowCartridge::SetupGame()
 
 	const TArray<FString> MyWords = GetValidWords(Words);
 
-//	PrintLine(TEXT("%d"), FMath::RandRange(0, MyWords.Num()));
+	//	PrintLine(TEXT("%d"), FMath::RandRange(0, MyWords.Num()));
 
-	HiddenWord = MyWords[FMath::RandRange(0, MyWords.Num()-1)];
+	HiddenWord = MyWords[FMath::RandRange(0, MyWords.Num() - 1)];
 
 	//HiddenWord = TEXT("isogram");
 	Lives = HiddenWord.Len();
@@ -108,11 +109,12 @@ void UBullCowCartridge::ProcessGuess(const FString& Guess)
 		EndGame();
 		return;
 	}
-	int32 Bulls, Cows;
-	GetBullCows(Guess, Bulls, Cows);
-	PrintLine(TEXT("Your have %d bulls and %d cows"), Bulls, Cows);
 
-	
+	//	int32 Bulls, Cows;
+	FBullCowCount Count = GetBullCows(Guess);
+	PrintLine(TEXT("Your have %d bulls and %d cows"), Count.Bulls, Count.Cows);
+
+
 	if (IsIsogram(Guess))
 	{
 		Lives--;
@@ -128,8 +130,8 @@ void UBullCowCartridge::ProcessGuess(const FString& Guess)
 		return;
 	}
 
-	
-	
+
+
 	//else //if (HiddenWord.Len() != Input.Len())
 	//{
 	Lives--;
@@ -185,16 +187,20 @@ TArray<FString> UBullCowCartridge::GetValidWords(TArray<FString>& InWords) const
 	return InWords;
 }
 
-void UBullCowCartridge::GetBullCows(const FString& Guess, int32& BullCount, int32& CowCount) const
+FBullCowCount UBullCowCartridge::GetBullCows(const FString& Guess) const
 {
-	BullCount = 0, CowCount = 0;
+	//BullCount = 0, CowCount = 0;
 
-	
-	for(int32 GuessIndex = 0; GuessIndex < Guess.Len() ; GuessIndex++)
+	FBullCowCount Count;
+	//Count.Bulls = 1;
+
+
+
+	for (int32 GuessIndex = 0; GuessIndex < Guess.Len(); GuessIndex++)
 	{
-		if(Guess[GuessIndex] == HiddenWord[GuessIndex])
+		if (Guess[GuessIndex] == HiddenWord[GuessIndex])
 		{
-			BullCount++;
+			Count.Bulls++;
 			continue;
 		}
 
@@ -202,10 +208,14 @@ void UBullCowCartridge::GetBullCows(const FString& Guess, int32& BullCount, int3
 		{
 			if (Guess[GuessIndex] == HiddenWord[HiddenIndex])
 			{
-				CowCount++;
+				Count.Cows++;
 				//continue;
 			}
 
 		}
 	}
+
+	PrintLine(TEXT("Bulls = %d, Cows = %d"), Count.Bulls, Count.Cows);
+
+	return Count;
 }
