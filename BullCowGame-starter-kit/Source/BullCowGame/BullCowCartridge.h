@@ -19,9 +19,10 @@ public:
 
 	// Your declarations go below!
 private:
-	void ProcessGuess(FString Guess);
-	bool IsIsogram(FString Word) const;
-	TArray<FString> GetValidWords(TArray<FString> InWords) const;
+	void ProcessGuess(const FString& Guess);
+	bool IsIsogram(const FString& Word) const;
+	TArray<FString> GetValidWords(TArray<FString>& InWords) const;
+	void GetBullCows(const FString& Guess, int32& BullCount, int32& CowCount) const;
 	
 	FString HiddenWord;
 	int32 Lives;
