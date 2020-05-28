@@ -22,16 +22,23 @@ void UWorldPosition::BeginPlay()
 
 	FString Name = GetOwner()->GetName();
 
-	FString Log = TEXT("Hello");
-	FString* PtrLog = &Log;
+	//FString Log = TEXT("Hello");
+	//FString* PtrLog = &Log;
 
-	int32 i1 = Log.Len();
-	int32 i2 = PtrLog->Len();
-	int32 i3 = (*PtrLog).Len();
-	
-	UE_LOG(LogTemp, Warning, TEXT("Actor name: %s"), *GetOwner()->GetName());
-	
-	
+	//int32 i1 = Log.Len();
+	//int32 i2 = PtrLog->Len();
+	//int32 i3 = (*PtrLog).Len();
+
+	//UE_LOG(LogTemp, Warning, TEXT("Actor name: %s"), *GetOwner()->GetName());
+
+	FString ObjectTransform = GetOwner()->GetTransform().ToHumanReadableString();
+	//FString ObjectTransformLocation = GetOwner()->GetTransform().GetLocation().ToString();
+	FString ObjectPosition = GetOwner()->GetActorLocation().ToString();
+
+	UE_LOG(LogTemp, Warning, TEXT("Actor name: %s ObjectTransform: %s"), *Name, *ObjectTransform);
+	//UE_LOG(LogTemp, Warning, TEXT("Actor ObjectTransformLocation: %s"), *ObjectTransformLocation);
+	UE_LOG(LogTemp, Warning, TEXT("Actor name: %s ObjectPosition: %s"), *Name, *ObjectPosition);
+
 }
 
 
