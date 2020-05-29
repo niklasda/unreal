@@ -25,7 +25,8 @@ void UOpenDoor::BeginPlay()
 
 	StartYaw = CurrentRotation.Yaw;
 	CurrentYaw = StartYaw;
-	TargetYaw = CurrentRotation.Yaw-90;
+	//TargetYaw = CurrentRotation.Yaw-90;
+	TargetYaw += StartYaw;
 
 }
 
