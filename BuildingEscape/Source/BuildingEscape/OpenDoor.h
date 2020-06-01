@@ -4,15 +4,19 @@
 
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
+#include "Engine/TriggerVolume.h"
+//#include "GameFramework/Actor.h"
+
 #include "OpenDoor.generated.h"
+//#include <Runtime\Engine\Classes\Engine\TriggerVolume.h>
 
 
-UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
+UCLASS(ClassGroup = (Custom), meta = (BlueprintSpawnableComponent))
 class BUILDINGESCAPE_API UOpenDoor : public UActorComponent
 {
 	GENERATED_BODY()
 
-public:	
+public:
 	// Sets default values for this component's properties
 	UOpenDoor();
 
@@ -20,14 +24,23 @@ protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;
 
-public:	
+public:
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
 private:
-	float StartYaw ;
-	float CurrentYaw ;
+	virtual void OpenDoor(float DeltaTime);
+
+private:
+	float StartYaw;
+	float CurrentYaw;
 
 	UPROPERTY(EditAnywhere)
-	float TargetYaw ;
+		float TargetYaw;
+
+	UPROPERTY(EditAnywhere)
+		ATriggerVolume* PressurePlate;
+
+	UPROPERTY(EditAnywhere)
+		AActor* ActorThatOpens;
 };
