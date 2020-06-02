@@ -30,6 +30,8 @@ public:
 
 private:
 	virtual void OpenDoor(float DeltaTime);
+	virtual void CloseDoor(float DeltaTime);
+
 
 private:
 	float StartYaw;

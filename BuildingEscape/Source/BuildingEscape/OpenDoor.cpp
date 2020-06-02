@@ -32,18 +32,15 @@ void UOpenDoor::BeginPlay()
 
 	if (!PressurePlate)
 	{
-		// actorname has open door component but no pressure plate set
-		//const FString Name = GetOwner()->GetName();
 
 		UE_LOG(LogTemp, Error, TEXT("%s has OpenDoor component but no PressurePlate"), *GetOwner()->GetName());
 	}
 
 	const UWorld* World = GetWorld();
-	const APlayerController* Player = GetWorld()->GetFirstPlayerController();
-	AActor* Pawn = GetWorld()->GetFirstPlayerController()->GetPawn();
+	const APlayerController* Player = World->GetFirstPlayerController();
+	AActor* Pawn = Player->GetPawn();
 
 	ActorThatOpens = Pawn;
-	
 }
 
 
@@ -56,14 +53,14 @@ void UOpenDoor::TickComponent(float DeltaTime, ELevelTick TickType, FActorCompon
 	{
 		OpenDoor(DeltaTime);
 	}
-
-	// ...
+	else
+	{
+		CloseDoor(DeltaTime);
+	}
 }
 
-// Called every frame
 void UOpenDoor::OpenDoor(float DeltaTime)
 {
-
 	CurrentYaw = FMath::Lerp(CurrentYaw, TargetYaw, DeltaTime * 1.1f);
 
 	UE_LOG(LogTemp, Warning, TEXT("%f, %f, %f - %f"), StartYaw, CurrentYaw, TargetYaw, DeltaTime);
@@ -73,5 +70,16 @@ void UOpenDoor::OpenDoor(float DeltaTime)
 	DoorRotation.Yaw = CurrentYaw;
 
 	GetOwner()->SetActorRotation(DoorRotation);
+}
 
+void UOpenDoor::CloseDoor(float DeltaTime)
+{
+	CurrentYaw = FMath::Lerp(CurrentYaw, StartYaw, DeltaTime * 0.5f);
+
+	UE_LOG(LogTemp, Warning, TEXT("%f, %f, %f - %f"), StartYaw, CurrentYaw, TargetYaw, DeltaTime);
+
+	FRotator DoorRotation = GetOwner()->GetActorRotation();
+	DoorRotation.Yaw = CurrentYaw;
+
+	GetOwner()->SetActorRotation(DoorRotation);
 }
