@@ -37,6 +37,9 @@ private:
 	float StartYaw;
 	float CurrentYaw;
 
+	float DoorLastOpened = 0.f;
+	float DoorCloseDelay = 1.f;
+
 	UPROPERTY(EditAnywhere)
 		float TargetYaw;
 
