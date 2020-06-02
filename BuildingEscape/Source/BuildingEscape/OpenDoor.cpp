@@ -3,7 +3,9 @@
 
 #include "OpenDoor.h"
 
-//#include "GameFramework/Actor.h"
+#include "Engine/World.h"
+#include "GameFramework/PlayerController.h"
+
 
 // Sets default values for this component's properties
 UOpenDoor::UOpenDoor()
@@ -22,7 +24,7 @@ void UOpenDoor::BeginPlay()
 	Super::BeginPlay();
 
 	const FRotator CurrentRotation = GetOwner()->GetActorRotation();
-
+	
 	StartYaw = CurrentRotation.Yaw;
 	CurrentYaw = StartYaw;
 	//TargetYaw = CurrentRotation.Yaw-90;
@@ -30,14 +32,18 @@ void UOpenDoor::BeginPlay()
 
 	if (!PressurePlate)
 	{
-
 		// actorname has open door component but no pressure plate set
-
 		//const FString Name = GetOwner()->GetName();
 
 		UE_LOG(LogTemp, Error, TEXT("%s has OpenDoor component but no PressurePlate"), *GetOwner()->GetName());
-
 	}
+
+	const UWorld* World = GetWorld();
+	const APlayerController* Player = GetWorld()->GetFirstPlayerController();
+	AActor* Pawn = GetWorld()->GetFirstPlayerController()->GetPawn();
+
+	ActorThatOpens = Pawn;
+	
 }
 
 
