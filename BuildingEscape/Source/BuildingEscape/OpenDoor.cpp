@@ -80,7 +80,7 @@ void UOpenDoor::CloseDoor(float DeltaTime)
 {
 	CurrentYaw = FMath::Lerp(CurrentYaw, StartYaw, DeltaTime * DoorCloseSpeed);
 
-	UE_LOG(LogTemp, Warning, TEXT("%f, %f, %f - %f"), StartYaw, CurrentYaw, TargetYaw, DeltaTime);
+	//UE_LOG(LogTemp, Warning, TEXT("%f, %f, %f - %f"), StartYaw, CurrentYaw, TargetYaw, DeltaTime);
 
 	FRotator DoorRotation = GetOwner()->GetActorRotation();
 	DoorRotation.Yaw = CurrentYaw;
