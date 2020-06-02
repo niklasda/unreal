@@ -65,7 +65,7 @@ void UOpenDoor::TickComponent(float DeltaTime, ELevelTick TickType, FActorCompon
 
 void UOpenDoor::OpenDoor(float DeltaTime)
 {
-	CurrentYaw = FMath::Lerp(CurrentYaw, TargetYaw, DeltaTime * 1.1f);
+	CurrentYaw = FMath::Lerp(CurrentYaw, TargetYaw, DeltaTime * DoorOpenSpeed);
 
 	UE_LOG(LogTemp, Warning, TEXT("%f, %f, %f - %f"), StartYaw, CurrentYaw, TargetYaw, DeltaTime);
 
@@ -78,7 +78,7 @@ void UOpenDoor::OpenDoor(float DeltaTime)
 
 void UOpenDoor::CloseDoor(float DeltaTime)
 {
-	CurrentYaw = FMath::Lerp(CurrentYaw, StartYaw, DeltaTime * 0.5f);
+	CurrentYaw = FMath::Lerp(CurrentYaw, StartYaw, DeltaTime * DoorCloseSpeed);
 
 	UE_LOG(LogTemp, Warning, TEXT("%f, %f, %f - %f"), StartYaw, CurrentYaw, TargetYaw, DeltaTime);
 
