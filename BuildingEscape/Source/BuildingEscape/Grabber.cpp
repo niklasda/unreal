@@ -27,9 +27,40 @@ void UGrabber::BeginPlay()
 
 	UE_LOG(LogTemp, Warning, TEXT("Grabber reporting for duty"));
 
+	PhysicsHandle = GetOwner()->FindComponentByClass<UPhysicsHandleComponent>();
+	if(PhysicsHandle)
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Could find physics handle component - %s on %s"), *GetName(), *GetOwner()->GetName());
+	}
+	else
+	{
+		UE_LOG(LogTemp, Error, TEXT("Could not find physics handle component - %s on %s"), *GetName(), *GetOwner()->GetName());
+	}
 
+	InputComponent = GetOwner()->FindComponentByClass<UInputComponent>();
+	if(InputComponent)
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Could find input component - %s on %s"), *GetName(), *GetOwner()->GetName());
+		InputComponent->BindAction("Grab", IE_Pressed, this, &UGrabber::Grab);
+		InputComponent->BindAction("Grab", IE_Released, this, &UGrabber::UnGrab);
+
+	}
+	/*else
+	{
+		UE_LOG(LogTemp, Error, TEXT("Could not find input component - %s on %s"), *GetName(), *GetOwner()->GetName());
+	}*/
 }
 
+void UGrabber::Grab()
+{
+	UE_LOG(LogTemp, Warning, TEXT("Key pressed "));
+
+}
+void UGrabber::UnGrab()
+{
+	UE_LOG(LogTemp, Warning, TEXT("Key released "));
+
+}
 
 // Called every frame
 void UGrabber::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
@@ -62,7 +93,7 @@ void UGrabber::TickComponent(float DeltaTime, ELevelTick TickType, FActorCompone
 		AActor* a = Hit.GetActor();
 		if (a)
 		{
-			UE_LOG(LogTemp, Warning, TEXT("%s - %s"), *a->GetName(), *a->GetTransform().ToHumanReadableString());
+			UE_LOG(LogTemp, Warning, TEXT("%s - %s"), *a->GetName(), *a->GetTransform().GetLocation().ToCompactString());
 		}
 	}
 }
