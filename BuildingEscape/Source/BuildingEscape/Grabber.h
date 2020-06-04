@@ -9,7 +9,6 @@
 
 #include "Grabber.generated.h"
 
-
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
 class BUILDINGESCAPE_API UGrabber : public UActorComponent
 {
@@ -21,7 +20,7 @@ public:
 
 	// every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
-	
+
 protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;
@@ -35,5 +34,5 @@ private :
 	void Grab();
 	void UnGrab();
 	FHitResult GetPhysicsBodyInReach() const;
-
+	FVector GetLineEnd() const;
 };
