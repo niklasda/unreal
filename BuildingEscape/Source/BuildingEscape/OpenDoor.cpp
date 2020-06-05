@@ -7,6 +7,7 @@
 #include "GameFramework/Actor.h"
 #include "PhysicsEngine/PhysicsHandleComponent.h"
 #include "Components/PrimitiveComponent.h"
+#include "Components/AudioComponent.h"
 
 
 
@@ -35,6 +36,8 @@ void UOpenDoor::BeginPlay()
 		UE_LOG(LogTemp, Error, TEXT("%s has OpenDoor component but no PressurePlate"), *GetOwner()->GetName());
 	}
 
+	FindAudioComponent();
+	
 	//const UWorld* World = GetWorld();
 	//const APlayerController* Player = GetWorld()->GetFirstPlayerController();
 	AActor* Pawn = GetWorld()->GetFirstPlayerController()->GetPawn();
@@ -55,7 +58,7 @@ void UOpenDoor::TickComponent(float DeltaTime, ELevelTick TickType, FActorCompon
 	}
 	else
 	{
-		if (GetWorld()->GetTimeSeconds() > DoorLastOpened + DoorCloseDelay)
+		if ((GetWorld()->GetTimeSeconds() > (DoorLastOpened + DoorCloseDelay)) && (DoorLastOpened>1))
 		{
 			CloseDoor(DeltaTime);
 		}
@@ -94,6 +97,10 @@ void UOpenDoor::OpenDoor(float DeltaTime)
 
 	UE_LOG(LogTemp, Warning, TEXT("%f, %f, %f - %f"), StartYaw, CurrentYaw, TargetYaw, DeltaTime);
 
+	if (AudioComponent)
+	{
+		AudioComponent->Play();
+	}
 
 	FRotator DoorRotation = GetOwner()->GetActorRotation();
 	DoorRotation.Yaw = CurrentYaw;
@@ -107,8 +114,28 @@ void UOpenDoor::CloseDoor(float DeltaTime)
 
 	//UE_LOG(LogTemp, Warning, TEXT("%f, %f, %f - %f"), StartYaw, CurrentYaw, TargetYaw, DeltaTime);
 
+	if (AudioComponent)
+	{
+		AudioComponent->Play();
+	}
+	
 	FRotator DoorRotation = GetOwner()->GetActorRotation();
 	DoorRotation.Yaw = CurrentYaw;
 
 	GetOwner()->SetActorRotation(DoorRotation);
+}
+
+void UOpenDoor::FindAudioComponent() 
+{
+	UAudioComponent* Sound = GetOwner()->FindComponentByClass<UAudioComponent>();
+
+	if(!Sound)
+	{
+		UE_LOG(LogTemp, Error, TEXT("No sound found"));
+	}
+	
+	AudioComponent = Sound;
+
+
+	//return Sound;
 }

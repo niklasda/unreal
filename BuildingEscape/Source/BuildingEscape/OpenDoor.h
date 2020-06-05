@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
+#include "Components/AudioComponent.h"
 #include "Engine/TriggerVolume.h"
 //#include "GameFramework/Actor.h"
 
@@ -29,8 +30,9 @@ public:
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
 private:
-	virtual void OpenDoor(float DeltaTime);
-	virtual void CloseDoor(float DeltaTime);
+	void OpenDoor(float DeltaTime);
+	void CloseDoor(float DeltaTime);
+	void FindAudioComponent();
 
 	float TotalMassOfActors() const;
 
@@ -57,6 +59,9 @@ private:
 
 	UPROPERTY(EditAnywhere)
 		ATriggerVolume* PressurePlate = nullptr;
+
+	UPROPERTY()
+		UAudioComponent* AudioComponent = nullptr;
 
 	//UPROPERTY(EditAnywhere)
 	//	AActor* ActorThatOpens = nullptr;
