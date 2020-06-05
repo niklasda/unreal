@@ -38,6 +38,7 @@ private:
 
 	float StartYaw;
 	float CurrentYaw;
+	bool DoorIsOpen = false;
 
 	float DoorLastOpened = 0.f;
 

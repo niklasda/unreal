@@ -53,14 +53,21 @@ void UOpenDoor::TickComponent(float DeltaTime, ELevelTick TickType, FActorCompon
 
 	if (TotalMassOfActors() > OpenDoorMass)
 	{
-		OpenDoor(DeltaTime);
-		DoorLastOpened = GetWorld()->GetTimeSeconds();
+		
+			OpenDoor(DeltaTime);
+			DoorLastOpened = GetWorld()->GetTimeSeconds();
+		//	DoorIsOpen = true;
+		
 	}
 	else
 	{
-		if ((GetWorld()->GetTimeSeconds() > (DoorLastOpened + DoorCloseDelay)) && (DoorLastOpened>1))
+		if ((GetWorld()->GetTimeSeconds() > (DoorLastOpened + DoorCloseDelay)) && (DoorLastOpened > 1))
 		{
-			CloseDoor(DeltaTime);
+		//	if (!DoorIsOpen)
+			//{
+				CloseDoor(DeltaTime);
+			//	DoorIsOpen = false;
+			//}
 		}
 	}
 }
@@ -97,9 +104,10 @@ void UOpenDoor::OpenDoor(float DeltaTime)
 
 	UE_LOG(LogTemp, Warning, TEXT("%f, %f, %f - %f"), StartYaw, CurrentYaw, TargetYaw, DeltaTime);
 
-	if (AudioComponent)
+	if (AudioComponent && !DoorIsOpen)
 	{
 		AudioComponent->Play();
+		DoorIsOpen = true;
 	}
 
 	FRotator DoorRotation = GetOwner()->GetActorRotation();
@@ -114,9 +122,10 @@ void UOpenDoor::CloseDoor(float DeltaTime)
 
 	//UE_LOG(LogTemp, Warning, TEXT("%f, %f, %f - %f"), StartYaw, CurrentYaw, TargetYaw, DeltaTime);
 
-	if (AudioComponent)
+	if (AudioComponent && DoorIsOpen)
 	{
 		AudioComponent->Play();
+		DoorIsOpen = false;
 	}
 	
 	FRotator DoorRotation = GetOwner()->GetActorRotation();
