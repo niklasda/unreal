@@ -2,13 +2,12 @@
 
 
 #include "TankPlayerController.h"
-#include "BattleTank.h"
 
 
 void ATankPlayerController::BeginPlay()
 {
 	Super::BeginPlay();
-	UE_LOG(LogTemp, Warning, TEXT("PlayerController BeginPlay"));
+	//UE_LOG(LogTemp, Warning, TEXT("PlayerController BeginPlay"));
 
 	const auto TheTank = GetControlledTank();
 	if(!TheTank)
