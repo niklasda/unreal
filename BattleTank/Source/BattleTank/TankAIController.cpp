@@ -9,8 +9,8 @@ void ATankAIController::BeginPlay()
 	Super::BeginPlay();
 	//UE_LOG(LogTemp, Warning, TEXT("AI Controller BeginPlay"));
 
-	const auto TheTank = GetControlledTank();
-	if (!TheTank)
+	const auto PlayerTank = GetPlayerTank();
+	if (!PlayerTank)
 	{
 		//const FString TheName = TheTank->GetName();
 
@@ -18,7 +18,7 @@ void ATankAIController::BeginPlay()
 	}
 	else
 	{
-		const FString TheName = TheTank->GetName();
+		const FString TheName = PlayerTank->GetName();
 
 		UE_LOG(LogTemp, Warning, TEXT("GetAITank %s"), *TheName);
 	}
@@ -34,4 +34,21 @@ ATank* ATankAIController::GetControlledTank() const
 
 
 	return TheTank;
+}
+
+
+ATank* ATankAIController::GetPlayerTank() const
+{
+
+	auto PlayerPawn = GetWorld()->GetFirstPlayerController()->GetPawn();
+	
+	if(!PlayerPawn)
+	{
+		return nullptr;
+	}
+
+
+
+
+	return Cast<ATank>(PlayerPawn);;
 }

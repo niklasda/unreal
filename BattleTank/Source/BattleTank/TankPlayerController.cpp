@@ -24,7 +24,25 @@ void ATankPlayerController::BeginPlay()
 	}
 }
 
+// Called every frame
+void ATankPlayerController::Tick(float DeltaTime)
+{
+	Super::Tick(DeltaTime);
 
+	AimTowardsCrosshair();
+	
+	// UE_LOG(LogTemp, Warning, TEXT("PlayerController Ticks"));
+
+}
+
+void ATankPlayerController::AimTowardsCrosshair() 
+{
+	if( !GetControlledTank())
+	{
+		return;
+	}
+
+}
 
 ATank* ATankPlayerController::GetControlledTank() const
 {
