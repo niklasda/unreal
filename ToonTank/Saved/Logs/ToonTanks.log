@@ -750,3 +750,79 @@ LogConfig: Setting CVar [[r.setres:1280x720]]
 [2020.07.29-13.01.57:739][ 26]LogShaderCompilers: Display: Worker (7/9): shaders left to compile 2
 [2020.07.29-13.01.57:739][ 26]LogShaderCompilers: Display: Worker (8/9): shaders left to compile 1
 [2020.07.29-13.02.42:345][250]LogSlate: Took 0.008020 seconds to synchronously load lazily loaded font '../../../Engine/Content/Slate/Fonts/Roboto-Italic.ttf' (157K)
+[2020.07.29-13.05.16:391][888]LogSlate: WidgetSwitcher ('None') active index changed to -1
+[2020.07.29-13.05.16:392][888]LogSlate: WidgetSwitcher ('None') active index changed to 0
+[2020.07.29-13.05.16:459][888]LogSlate: Took 0.000150 seconds to synchronously load lazily loaded font '../../../Engine/Content/Slate/Fonts/Roboto-BoldCondensed.ttf' (158K)
+[2020.07.29-13.05.46:910][440]LogSlate: Window 'Add C++ Class' being destroyed
+[2020.07.29-13.06.04:348][531]LogSlate: WidgetSwitcher ('None') active index changed to -1
+[2020.07.29-13.06.04:348][531]LogSlate: WidgetSwitcher ('None') active index changed to 0
+[2020.07.29-13.08.19:261][421]LogSlate: WidgetSwitcher ('None') active index changed to 1
+[2020.07.29-13.09.27:641][415]Running C:/Program Files/Epic Games/UE_4.25/Engine/Binaries/DotNET/UnrealBuildTool.exe  -projectfiles -project="C:/Projects/GitHub/Unreal/ToonTank/ToonTanks.uproject" -game -rocket -progress
+[2020.07.29-13.09.27:945][415]Discovering modules, targets and source code for project...
+[2020.07.29-13.09.29:359][415]Binding IntelliSense data...
+[2020.07.29-13.09.32:298][415]Binding IntelliSense data... 100%
+[2020.07.29-13.09.32:299][415]Writing project files...
+[2020.07.29-13.09.35:937][415]Writing project files... 100%
+[2020.07.29-13.09.36:139][415]LogHotReload: Recompiling module ToonTanks...
+[2020.07.29-13.09.36:143][415]LogVSAccessor: Warning: Couldn't access Visual Studio
+[2020.07.29-13.09.36:155][415]Candidate modules for hot reload:
+[2020.07.29-13.09.36:155][415]  ToonTanks
+[2020.07.29-13.09.36:155][415]Launching UnrealBuildTool... [C:/Program Files/Epic Games/UE_4.25/Engine/Binaries/DotNET/UnrealBuildTool.exe  -ModuleWithSuffix=ToonTanks,9446 ToonTanksEditor Win64 Development -Project="C:/Projects/GitHub/Unreal/ToonTank/ToonTanks.uproject" "C:/Projects/GitHub/Unreal/ToonTank/ToonTanks.uproject"  -IgnoreJunk]
+[2020.07.29-13.10.14:000][415]Using 'git status' to determine working set for adaptive non-unity build (C:\Projects\GitHub\Unreal).
+Creating makefile for ToonTanksEditor (no existing makefile)
+Parsing headers for ToonTanksEditor
+  Running UnrealHeaderTool "C:\Projects\GitHub\Unreal\ToonTank\ToonTanks.uproject" "C:\Projects\GitHub\Unreal\ToonTank\Intermediate\Build\Win64\ToonTanksEditor\Development\ToonTanksEditor.uhtmanifest" -LogCmds="loginit warning, logexit warning, logdatabase error" -Unattended -WarningsAsErrors -abslog="C:\Users\machi\AppData\Local\UnrealBuildTool\Log_UHT.txt" -installed
+Reflection code generated for ToonTanksEditor in 5,1178114 seconds
+Building ToonTanksEditor...
+Using Visual Studio 2019 14.26.28806 toolchain (C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\VC\Tools\MSVC\14.26.28801) and Windows 10.0.18362.0 SDK (C:\Program Files (x86)\Windows Kits\10).
+Building 9 actions with 12 processes...
+  [1/9] Default.rc2
+  [2/9] SharedPCH.Engine.ShadowErrors.cpp
+  [3/9] ToonTanks.cpp
+  [4/9] PawnBase.cpp
+  [5/9] ToonTanks.init.gen.cpp
+  [6/9] PawnBase.gen.cpp
+  [7/9] UE4Editor-ToonTanks-9446.lib
+     Creating library C:\Projects\GitHub\Unreal\ToonTank\Intermediate\Build\Win64\UE4Editor\Development\ToonTanks\UE4Editor-ToonTanks-9446.lib and object C:\Projects\GitHub\Unreal\ToonTank\Intermediate\Build\Win64\UE4Editor\Development\ToonTanks\UE4Editor-ToonTanks-9446.exp
+  [8/9] UE4Editor-ToonTanks-9446.dll
+     Creating library C:\Projects\GitHub\Unreal\ToonTank\Intermediate\Build\Win64\UE4Editor\Development\ToonTanks\UE4Editor-ToonTanks-9446.suppressed.lib and object C:\Projects\GitHub\Unreal\ToonTank\Intermediate\Build\Win64\UE4Editor\Development\ToonTanks\UE4Editor-ToonTanks-9446.suppressed.exp
+  [9/9] ToonTanksEditor.target
+Total time in Parallel executor: 23,18 seconds
+Total execution time: 37,75 seconds
+
+[2020.07.29-13.10.14:001][415]CompilerResultsLog: New page: Compilation - 29 juli 2020 17:10:14
+[2020.07.29-13.10.14:001][415]CompilerResultsLog: Using 'git status' to determine working set for adaptive non-unity build (C:\Projects\GitHub\Unreal).
+[2020.07.29-13.10.14:001][415]CompilerResultsLog: Creating makefile for ToonTanksEditor (no existing makefile)
+[2020.07.29-13.10.14:001][415]CompilerResultsLog: Parsing headers for ToonTanksEditor
+[2020.07.29-13.10.14:001][415]CompilerResultsLog:   Running UnrealHeaderTool "C:\Projects\GitHub\Unreal\ToonTank\ToonTanks.uproject" "C:\Projects\GitHub\Unreal\ToonTank\Intermediate\Build\Win64\ToonTanksEditor\Development\ToonTanksEditor.uhtmanifest" -LogCmds="loginit warning, logexit warning, logdatabase error" -Unattended -WarningsAsErrors -abslog="C:\Users\machi\AppData\Local\UnrealBuildTool\Log_UHT.txt" -installed
+[2020.07.29-13.10.14:001][415]CompilerResultsLog: Reflection code generated for ToonTanksEditor in 5,1178114 seconds
+[2020.07.29-13.10.14:001][415]CompilerResultsLog: Building ToonTanksEditor...
+[2020.07.29-13.10.14:001][415]CompilerResultsLog: Using Visual Studio 2019 14.26.28806 toolchain (C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\VC\Tools\MSVC\14.26.28801) and Windows 10.0.18362.0 SDK (C:\Program Files (x86)\Windows Kits\10).
+[2020.07.29-13.10.14:001][415]CompilerResultsLog: Building 9 actions with 12 processes...
+[2020.07.29-13.10.14:001][415]CompilerResultsLog:   [1/9] Default.rc2
+[2020.07.29-13.10.14:001][415]CompilerResultsLog:   [2/9] SharedPCH.Engine.ShadowErrors.cpp
+[2020.07.29-13.10.14:001][415]CompilerResultsLog:   [3/9] ToonTanks.cpp
+[2020.07.29-13.10.14:001][415]CompilerResultsLog:   [4/9] PawnBase.cpp
+[2020.07.29-13.10.14:001][415]CompilerResultsLog:   [5/9] ToonTanks.init.gen.cpp
+[2020.07.29-13.10.14:001][415]CompilerResultsLog:   [6/9] PawnBase.gen.cpp
+[2020.07.29-13.10.14:001][415]CompilerResultsLog:   [7/9] UE4Editor-ToonTanks-9446.lib
+[2020.07.29-13.10.14:001][415]CompilerResultsLog:      Creating library C:\Projects\GitHub\Unreal\ToonTank\Intermediate\Build\Win64\UE4Editor\Development\ToonTanks\UE4Editor-ToonTanks-9446.lib and object C:\Projects\GitHub\Unreal\ToonTank\Intermediate\Build\Win64\UE4Editor\Development\ToonTanks\UE4Editor-ToonTanks-9446.exp
+[2020.07.29-13.10.14:001][415]CompilerResultsLog:   [8/9] UE4Editor-ToonTanks-9446.dll
+[2020.07.29-13.10.14:001][415]CompilerResultsLog:      Creating library C:\Projects\GitHub\Unreal\ToonTank\Intermediate\Build\Win64\UE4Editor\Development\ToonTanks\UE4Editor-ToonTanks-9446.suppressed.lib and object C:\Projects\GitHub\Unreal\ToonTank\Intermediate\Build\Win64\UE4Editor\Development\ToonTanks\UE4Editor-ToonTanks-9446.suppressed.exp
+[2020.07.29-13.10.14:001][415]CompilerResultsLog:   [9/9] ToonTanksEditor.target
+[2020.07.29-13.10.14:001][415]CompilerResultsLog: Total time in Parallel executor: 23,18 seconds
+[2020.07.29-13.10.14:001][415]CompilerResultsLog: Total execution time: 37,75 seconds
+[2020.07.29-13.10.14:001][415]LogMainFrame: MainFrame: Module compiling took 37.858 seconds
+[2020.07.29-13.10.14:001][415]Reloading module ToonTanks after successful compile.
+[2020.07.29-13.10.14:032][415]LogClass: Could not find existing package /Script/ToonTanks for HotReload of class PawnBase, assuming a new package.
+[2020.07.29-13.10.14:034][415]LogContentBrowser: Native class hierarchy updated for 'ToonTanks' in 0.0006 seconds. Added 1 classes and 3 folders.
+[2020.07.29-13.10.14:048][415]LogUObjectHash: Compacting FUObjectHashTables data took   0.73ms
+[2020.07.29-13.10.14:062][415]LogContentBrowser: Native class hierarchy populated in 0.0081 seconds. Added 3430 classes and 826 folders.
+[2020.07.29-13.10.14:199][415]LogSlate: Window 'Add C++ Class' being destroyed
+[2020.07.29-13.10.43:079][445]LogEditorViewport: Clicking on Actor (LMB): StaticMeshActor (Floor)
+[2020.07.29-13.10.45:282][612]LogEditorViewport: Clicking on Actor (LMB): StaticMeshActor (Floor)
+[2020.07.29-13.10.59:131][458]LogEditorViewport: Clicking on Actor (LMB): StaticMeshActor (Floor)
+[2020.07.29-13.11.00:825][558]LogEditorViewport: Clicking on Actor (LMB): StaticMeshActor (Floor)
+[2020.07.29-13.11.01:797][614]LogEditorViewport: Clicking on Actor (LMB): StaticMeshActor (Cube6)
+[2020.07.29-13.11.04:665][778]LogEditorViewport: Clicking on Actor (LMB): StaticMeshActor (Cube)
+[2020.07.29-13.11.11:017][153]LogEditorViewport: Clicking on Actor (LMB): StaticMeshActor (Cube6)
