@@ -34,7 +34,7 @@ void APawnTurret::HandleDestruction()
 {
 	Super::HandleDestruction();
 
-	Destroyed();
+	Destroy();
 }
 
 void APawnTurret::CheckFireCondition()
