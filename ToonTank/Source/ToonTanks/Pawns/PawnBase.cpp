@@ -4,6 +4,8 @@
 #include "PawnBase.h"
 #include "Components/CapsuleComponent.h"
 
+
+
 // Sets default values
 APawnBase::APawnBase()
 {
@@ -24,3 +26,21 @@ APawnBase::APawnBase()
 }
 
 
+void APawnBase::RotateTurret(FVector LookAtTarget)
+{
+	FVector LookAtTargetCleaned = FVector(LookAtTarget.X, LookAtTarget.Y, TurretMesh->GetComponentLocation().Z);
+	FVector StartLocation = TurretMesh->GetComponentLocation();
+
+	FRotator TurretRotation = FVector(LookAtTargetCleaned - StartLocation).Rotation();
+	TurretMesh->SetWorldRotation(TurretRotation);
+}
+
+void APawnBase::Fire()
+{
+	UE_LOG(LogTemp, Warning, TEXT("FIRE"));
+
+}
+
+void APawnBase::HandleDestruction()
+{
+}
