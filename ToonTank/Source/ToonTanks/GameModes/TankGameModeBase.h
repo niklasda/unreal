@@ -26,6 +26,10 @@ public:
     void ActorDied(AActor* DeadActor);
 
 protected:
+
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Game Loop")
+    int StartDelay;
+
     virtual void BeginPlay() override;
 
     UFUNCTION(BlueprintImplementableEvent)

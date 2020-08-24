@@ -35,7 +35,7 @@ private:
 		float MovementSpeed = 1300.0f;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Damage", meta = (AllowPrivateAccess = "true"))
-		float Damage = 50.0f;
+		float Damage = 40.0f;
 
 	UFUNCTION()
 		void OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit);
